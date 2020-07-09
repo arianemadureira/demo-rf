@@ -36,6 +36,7 @@ jobs:
   - task: PublishTestResults@2
     inputs:
       testResultsFiles: '**/test-results.xml'
+       testRunTitle: 'Python $(python.version)'
       #searchFolder: 'D:\a\1\s\'
       publishRunAttachments: true
     condition: succeededOrFailed()
