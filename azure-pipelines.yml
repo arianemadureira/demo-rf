@@ -37,15 +37,15 @@ jobs:
     condition: succeededOrFailed()
     displayName: 'Publish Test Results outputxunit.xml'
 
-  - task: ArchiveFiles@2
+  - task: CopyFiles@2
     inputs:
-      rootFolderOrFile: '$(Build.BinariesDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
+      SourceFolder: 'D:\a\1\s\'
+      Contents: 'D:\a\1\s\'
+      TargetFolder: '$(build.artifactstagingdirectory)'
+      preserveTimestamp: true
+
   - task: PublishPipelineArtifact@1
     inputs:
-      targetPath: '$(Pipeline.Workspace)'
-      artifact: 'Public Artifacts'
+      targetPath: '$(Build.ArtifactStagingDirectory)'
+      artifact: '''Public Artifacts'''
       publishLocation: 'pipeline'
