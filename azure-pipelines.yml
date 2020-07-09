@@ -26,12 +26,12 @@ jobs:
   - script: pip install robotframework robotframework-seleniumlibrary && pip install robotframework-requests && pip install robotframework-extendedrequestslibrary && npm install chromedriver
     displayName: 'Install dependencies'
   
-  - powershell: robot --pythonpath . -x outputxunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
+  - powershell: robot --pythonpath . -x output.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
 
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: outputxunit.xml
+      testResultsFiles: output.xml
       searchFolder: 'D:\a\1\s\'
       publishRunAttachments: true
     condition: succeededOrFailed()
