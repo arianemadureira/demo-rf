@@ -31,7 +31,7 @@ jobs:
 
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: '*.html'
+      testResultsFiles: output.xml
       searchFolder: 'D:\a\1\s\'
       publishRunAttachments: true
     condition: succeededOrFailed()
