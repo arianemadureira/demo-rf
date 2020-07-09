@@ -39,8 +39,8 @@ jobs:
 
   - task: CopyFiles@2
     inputs:
-      SourceFolder: 'D:\a\1\s\'
-      Contents: 'D:\a\1\s\'
+      SourceFolder: $(Agent.BuildDirectory) 
+      Contents: '*.html'
       TargetFolder: '$(build.artifactstagingdirectory)'
       preserveTimestamp: true
 
