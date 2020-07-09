@@ -26,5 +26,5 @@ jobs:
   - script: pip install robotframework robotframework-seleniumlibrary && pip install robotframework-requests && pip install robotframework-extendedrequestslibrary && npm install chromedriver
     displayName: 'Install dependencies'
   
-  - powershell: robot --pythonpath . -x outputxunit.xml TestCasesAPIRequests.robot
+  - powershell: robot --pythonpath . Demos/DemoAPI/TestCasesAPIRequests.robot
     displayName: 'Run Robot Scripts'
