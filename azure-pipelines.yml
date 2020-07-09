@@ -36,22 +36,8 @@ jobs:
   - task: PublishTestResults@2
     inputs:
       testResultsFiles: '**/test-results.xml'
-       testRunTitle: 'Python $(python.version)'
+      testRunTitle: 'Python $(python.version)'
       #searchFolder: 'D:\a\1\s\'
       publishRunAttachments: true
     condition: succeededOrFailed()
     displayName: 'Publish Test Results outputxunit.xml'
-
-  - task: ArchiveFiles@2
-    inputs:
-      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
-      includeRootFolder: true
-      archiveType: 'zip'
-      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
-      replaceExistingArchive: true
-
-  - task: PublishPipelineArtifact@1
-    inputs:
-      targetPath: '$(Build.ArtifactStagingDirectory)'
-      artifact: '''Public Artifacts'''
-      publishLocation: 'pipeline'
