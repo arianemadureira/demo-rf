@@ -28,8 +28,9 @@ jobs:
   
   - powershell: robot --pythonpath. -x outputxunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
-  - task: PublishBuildArtifacts@1
+  - task: PublishTestResults@2
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-      ArtifactName: 'Publish Artifact'
-      publishLocation: 'Container'
+      testResultsFiles: outputxunit.xml
+      searchFolder: 'D:\a\1\s\'
+    condition: succeededOrFailed()
+    displayName: 'Publish Test Results outputxunit.xml'
