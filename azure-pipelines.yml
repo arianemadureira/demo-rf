@@ -1,9 +1,4 @@
 # Python package
-- task: PublishBuildArtifacts@1
-  inputs:
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    ArtifactName: 'Publish Artifact'
-    publishLocation: 'Container'
 # Create and test a Python package on multiple Python versions.
 # Add steps that analyze code, save the dist with the build record, publish to a PyPI-compatible index, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/languages/python
@@ -27,6 +22,11 @@ jobs:
     inputs:
       versionSpec: '$(python.version)'
       architecture: 'x64'
+  - task: PublishBuildArtifacts@1
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      ArtifactName: 'Publish Artifact'
+      publishLocation: 'Container'
 
   - script: pip install robotframework robotframework-seleniumlibrary && pip install robotframework-requests && pip install robotframework-extendedrequestslibrary && npm install chromedriver
     displayName: 'Install dependencies'
