@@ -37,12 +37,13 @@ jobs:
     condition: succeededOrFailed()
     displayName: 'Publish Test Results outputxunit.xml'
 
-  - task: CopyFiles@2
+  - task: ArchiveFiles@2
     inputs:
-      SourceFolder: $(Agent.BuildDirectory) 
-      Contents: '*.html'
-      TargetFolder: '$(build.artifactstagingdirectory)'
-      preserveTimestamp: true
+      rootFolderOrFile: '$(Build.ArtifactStagingDirectory)'
+      includeRootFolder: true
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
 
   - task: PublishPipelineArtifact@1
     inputs:
