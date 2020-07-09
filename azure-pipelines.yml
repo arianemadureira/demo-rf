@@ -29,9 +29,10 @@ jobs:
   - powershell: robot --pythonpath . -x outputxunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
 
-- task: PublishTestResults@2
+  - task: PublishTestResults@2
     inputs:
-      testResultsFiles: report.html
+      testResultsFiles: '*.html'
       searchFolder: 'D:\a\1\s\'
+      publishRunAttachments: true
     condition: succeededOrFailed()
     displayName: 'Publish Test Results outputxunit.xml'
