@@ -28,10 +28,3 @@ jobs:
   
   - powershell: robot --pythonpath . -x outputxunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
-
-  - task: PublishTestResults@2
-    inputs:
-      testResultsFiles: outputxunit.xml
-      searchFolder: 'D:\a\1\s\'
-    condition: succeededOrFailed()
-    displayName: 'Publish Test Results outputxunit.xml'
