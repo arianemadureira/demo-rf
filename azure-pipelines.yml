@@ -31,8 +31,9 @@ jobs:
 
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: 'outputXunit.xml; output.xml'
-      searchFolder: 'D:\a\1\s\'
+      testResultsFiles: '*.xml'
+      mergeTestResults: true
+      searchFolder: $(System.DefaultWorkingDirectory)
       publishRunAttachments: true
     condition: succeededOrFailed()
     displayName: 'Publish Test Results outputxunit.xml'
