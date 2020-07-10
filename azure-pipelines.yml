@@ -29,9 +29,10 @@ jobs:
   - powershell: robot --pythonpath . -x outputXunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
 
+
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: '*.xml'
+      testResultsFiles: '*'
       mergeTestResults: true
       searchFolder: $(System.DefaultWorkingDirectory)
       publishRunAttachments: true
