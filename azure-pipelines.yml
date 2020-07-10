@@ -32,7 +32,7 @@ jobs:
 
   - task: PublishTestResults@2
     inputs:
-      testResultsFiles: '*'
+      testResultsFiles: '*.xml'
       mergeTestResults: true
       searchFolder: $(System.DefaultWorkingDirectory)
       publishRunAttachments: true
