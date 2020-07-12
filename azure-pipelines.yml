@@ -31,7 +31,7 @@ jobs:
 
   - task: PublishBuildArtifacts@1
     inputs:
-      PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+      PathtoPublish: '$(System.DefaultWorkingDirectory)'
       ArtifactName: 'drop'
       publishLocation: 'Container'
   - task: PublishTestResults@2
