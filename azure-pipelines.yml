@@ -29,7 +29,11 @@ jobs:
   - powershell: robot --pythonpath . -x outputXunit.xml Demos/DemoWeb/testes/TestCasesBDDExemplo.robot
     displayName: 'Run Robot Scripts'
 
-
+  - task: DownloadFileshareArtifacts@1
+    inputs:
+      filesharePath: 'C:\azagent\A1'
+      artifactName: 'results'
+      downloadPath: '$(System.ArtifactsDirectory)'
   - task: PublishTestResults@2
     inputs:
       testResultsFiles: '*.xml'
